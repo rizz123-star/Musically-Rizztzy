@@ -1,96 +1,255 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rizztzy - Music Player</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rizztzy - Music & Layanan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+    }
+
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      margin-bottom: 15px;
+      animation: zoomIn 0.8s ease-out;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      margin-bottom: 8px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    header p {
+      font-size: 1em;
+      opacity: 0.8;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 35px;
+      color: #00ffff;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      animation: fadeInUp 0.8s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #00ffff;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .contact-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .contact-button a {
+      background-color: #00ffff;
+      color: #000;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact-button a:hover {
+      background-color: #00c6c6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #aaa;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 50px;
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <div class="video-background-container">
-        <video id="backgroundVideo" autoplay loop muted playsinline>
-            </video>
-        <div class="video-overlay"></div>
-    </div>
 
-    <div id="homePage" class="page active">
-        <header>
-            <h1>Search Song Create @Rizztzy</h1>
-        </header>
-        <main>
-            <ul id="songList" class="song-list">
-                <li class="loading-songs">Memuat lagu...</li> 
-            </ul>
-        </main>
-    </div>
+<!-- Landing Page -->
+<header>
+  <img src="https://files.catbox.moe/d2cg0d.jpg" alt="Profil RizzTzy">
+  <h1>RizzTzy</h1>
+  <p>Jualan Produk Digital & Desain Keren | Fast & Trusted</p>
+</header>
 
-    <div id="songDetailPage" class="page">
-        <button id="backToHomeFromDetailBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
-        <div class="song-detail-container">
-            <img id="detailAlbumArt" src="https://placehold.co/200x200/3a3a4e/e0e0e0?text=Art" alt="Album Art" class="detail-album-art">
-            <h2 id="detailTrackTitle">Judul Lagu</h2>
-            <p id="detailTrackArtist">Nama Artis</p>
-            <p id="detailAlbumName">Nama Album</p>
-            <button id="playFromDetailBtn" class="play-from-detail-btn"><i class="fas fa-play-circle"></i> Putar</button>
+<section>
+  <h2 class="section-title">Layanan Kami</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>Jasa Ddos Website</h3>
+      <p>Kami Jasa Ddos Website/Down Website bisa membuat website hold/mati 100% work gak work? 100% reff</p>
+    </div>
+    <div class="card">
+      <h3>Ready Panel pterodacytl</h3>
+      <p>Saya menyediakan Panel pterodacytl dari panel 1gb-unli gunanya untuk run bot bisa whatsapp+telegram+ubot+website nodejs</p>
+    </div>
+    <div class="card">
+      <h3>Ready Reseller Panel pterodacytl</h3>
+      <p>Saya menyediakan Reseller Panel Gunanya anda bisa membuat panel 1gb-unli dan bisa menjual kembali dan menjadi balmood/dapat keuntungan</p>
+    </div>
+    <div class="card">
+      <h3>Ready Admin Panel pterodacytl</h3>
+      <p>Saya menyediakan Admin Panel Gunanya anda bisa membuat panel 1gb-unli dan Open Reseller panel dan meraih keuntungan jika anda niat jualan</p>
+    </div>
+  </div>
+</section>
+
+<div class="contact-button">
+  <a href="#homePage">🎵 Buka Music Player</a>
+</div>
+
+<footer>&copy; 2025 RizzTzy - All rights reserved</footer>
+
+<!-- Music Player -->
+<div class="video-background-container">
+  <video id="backgroundVideo" autoplay loop muted playsinline></video>
+  <div class="video-overlay"></div>
+</div>
+
+<div id="homePage" class="page active">
+  <header>
+    <h1>Search Song Create @Rizztzy</h1>
+  </header>
+  <main>
+    <ul id="songList" class="song-list">
+      <li class="loading-songs">Memuat lagu...</li>
+    </ul>
+  </main>
+</div>
+
+<div id="songDetailPage" class="page">
+  <button id="backToHomeFromDetailBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
+  <div class="song-detail-container">
+    <img id="detailAlbumArt" src="https://placehold.co/200x200/3a3a4e/e0e0e0?text=Art" alt="Album Art" class="detail-album-art">
+    <h2 id="detailTrackTitle">Judul Lagu</h2>
+    <p id="detailTrackArtist">Nama Artis</p>
+    <p id="detailAlbumName">Nama Album</p>
+    <button id="playFromDetailBtn" class="play-from-detail-btn"><i class="fas fa-play-circle"></i> Putar</button>
+  </div>
+</div>
+
+<div id="playerPage" class="page">
+  <button id="backToHomeBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
+  <div class="music-player-container">
+    <div class="music-player-box">
+      <div class="player-header">
+        <img id="albumArt" src="https://placehold.co/100x100/3a3a4e/e0e0e0?text=Art" alt="Album Art" class="album-art-player">
+        <div class="track-info-player">
+          <h2 id="playerTrackTitle">Judul Lagu</h2>
+          <p id="playerTrackArtist">Nama Artis</p>
         </div>
-    </div>
-
-    <div id="playerPage" class="page">
-        <button id="backToHomeBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
-        <div class="music-player-container">
-            <div class="music-player-box">
-                <div class="player-header">
-                    <img id="albumArt" src="https://placehold.co/100x100/3a3a4e/e0e0e0?text=Art" alt="Album Art" class="album-art-player">
-                    <div class="track-info-player">
-                        <h2 id="playerTrackTitle">Judul Lagu</h2>
-                        <p id="playerTrackArtist">Nama Artis</p>
-                    </div>
-                </div>
-
-                <div id="lyricsContainer" class="lyrics-container">
-                    <p>Lirik akan tampil di sini...</p>
-                </div>
-
-                <div class="player-controls">
-                    <div class="progress-section-player">
-                        <div id="playerProgressBarContainer" class="progress-bar-container-player">
-                            <div id="playerProgressBar" class="progress-bar-player"></div>
-                        </div>
-                        <div class="time-display-player">
-                            <span id="playerCurrentTime">0:00</span>
-                            <span id="playerTotalDuration">0:00</span>
-                        </div> 
-                    </div>
-
-                    <div class="main-controls-player">
-                        <button id="playerPrevBtn" class="control-btn-player"><i class="fas fa-backward-step"></i></button>
-                        <button id="playerPlayPauseBtn" class="control-btn-player play-pause-player"><i class="fas fa-play"></i></button>
-                        <button id="playerNextBtn" class="control-btn-player"><i class="fas fa-forward-step"></i></button>
-                    </div>
-
-                    <div class="secondary-controls-player">
-                        <button id="playerRepeatBtn" class="control-btn-player small-icon"><i class="fas fa-repeat"></i></button>
-                        <button id="playerShuffleBtn" class="control-btn-player small-icon"><i class="fas fa-shuffle"></i></button>
-                        <div class="volume-control-player">
-                            <i class="fas fa-volume-down volume-icon-player"></i>
-                            <input type="range" id="playerVolumeSlider" class="volume-slider-player" min="0" max="1" step="0.01" value="0.8">
-                            <i class="fas fa-volume-up volume-icon-player ml-1"></i>
-                        </div>
-                        <div class="playback-speed-control">
-                            <i class="fas fa-tachometer-alt speed-icon"></i>
-                            <input type="range" id="playerSpeedSlider" class="speed-slider" min="0.5" max="2.0" step="0.25" value="1.0">
-                            <span id="currentSpeedDisplay">1.0x</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="footer-credit">//code by: @Rizztzy</p>
-            </div>
+      </div>
+      <div id="lyricsContainer" class="lyrics-container">
+        <p>Lirik akan tampil di sini...</p>
+      </div>
+      <div class="player-controls">
+        <div class="progress-section-player">
+          <div id="playerProgressBarContainer" class="progress-bar-container-player">
+            <div id="playerProgressBar" class="progress-bar-player"></div>
+          </div>
+          <div class="time-display-player">
+            <span id="playerCurrentTime">0:00</span>
+            <span id="playerTotalDuration">0:00</span>
+          </div>
         </div>
+        <div class="main-controls-player">
+          <button id="playerPrevBtn" class="control-btn-player"><i class="fas fa-backward-step"></i></button>
+          <button id="playerPlayPauseBtn" class="control-btn-player play-pause-player"><i class="fas fa-play"></i></button>
+          <button id="playerNextBtn" class="control-btn-player"><i class="fas fa-forward-step"></i></button>
+        </div>
+        <div class="secondary-controls-player">
+          <button id="playerRepeatBtn" class="control-btn-player small-icon"><i class="fas fa-repeat"></i></button>
+          <button id="playerShuffleBtn" class="control-btn-player small-icon"><i class="fas fa-shuffle"></i></button>
+          <div class="volume-control-player">
+            <i class="fas fa-volume-down volume-icon-player"></i>
+            <input type="range" id="playerVolumeSlider" class="volume-slider-player" min="0" max="1" step="0.01" value="0.8">
+            <i class="fas fa-volume-up volume-icon-player ml-1"></i>
+          </div>
+          <div class="playback-speed-control">
+            <i class="fas fa-tachometer-alt speed-icon"></i>
+            <input type="range" id="playerSpeedSlider" class="speed-slider" min="0.5" max="2.0" step="0.25" value="1.0">
+            <span id="currentSpeedDisplay">1.0x</span>
+          </div>
+        </div>
+      </div>
+      <p class="footer-credit">//code by: @Rizztzy</p>
     </div>
+  </div>
+</div>
 
-    <audio id="audioPlayer"></audio>
+<audio id="audioPlayer"></audio>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
