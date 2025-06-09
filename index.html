@@ -6,74 +6,17 @@
     <title>Rizztzy - Music Play</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Background image fallback khusus halaman utama */
-        #homePage {
-            background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
-            background-size: cover;
-            position: relative;
-            z-index: 2;
-        }
-
-        .video-background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            min-height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        #backgroundVideo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            background-size: cover;
-        }
-
-        .video-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 2;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow-x: hidden;
-        }
-
-        .page {
-            position: relative;
-            z-index: 3;
-        }
-    </style>
 </head>
 <body>
     <div class="video-background-container">
         <video id="backgroundVideo" autoplay loop muted playsinline>
-            <source src="https://cdn.pixabay.com/video/2023/03/29/159662-818099724_large.mp4" type="video/mp4">
-            <!-- Tambahkan fallback jika video tidak bisa diputar -->
-            Your browser does not support HTML5 video.
-        </video>
+            </video>
         <div class="video-overlay"></div>
     </div>
 
     <div id="homePage" class="page active">
         <header>
-            <h1>Search Song Create @Rizztzy</h1>
+            <h1>Play Song Create @Rizztzy</h1>
         </header>
         <main>
             <ul id="songList" class="song-list">
@@ -82,7 +25,6 @@
         </main>
     </div>
 
-    <!-- Song Detail Page -->
     <div id="songDetailPage" class="page">
         <button id="backToHomeFromDetailBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
         <div class="song-detail-container">
@@ -94,7 +36,6 @@
         </div>
     </div>
 
-    <!-- Player Page -->
     <div id="playerPage" class="page">
         <button id="backToHomeBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
         <div class="music-player-container">
